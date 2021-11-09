@@ -4,7 +4,6 @@ Servo handServo;
 Servo boxServo;
 
 int switchStatus = 0;
-const int ledPin = 13;
 const int frontSwitchPin = 6;
 const int handServoPin = 10;
 const int boxServoPin = 11;
@@ -12,20 +11,15 @@ const int boxServoPin = 11;
 
 void setup()
 {
-  pinMode(ledPin, OUTPUT);
-  
-  pinMode(frontSwitchPin, INPUT);
-  digitalWrite(frontSwitchPin, HIGH);
-  
   Serial.begin(9600);
-
+  
   handServo.attach(handServoPin);
   boxServo.attach(boxServoPin);
-  handServo.write(180);
+  handServo.write(26);
   boxServo.write(70);
 }
 void loop()
-{ 
+{
   switchStatus = digitalRead(frontSwitchPin);
   
 
@@ -33,37 +27,29 @@ void loop()
       for (int i = 70; i <= 110; i++)
       {
         boxServo.write(i);
-        Serial.println("box1");
+        Serial.println("box");
         delay(20);
       }
-      delay(20);
-      for (int j = 180; j >= 35; j--)
+      for (int i = 26; i >= 171; i++)
       {
-        handServo.write(j);
-        Serial.println("hand1");
+        handServo.write(i);
+        Serial.println("hand");
         delay(20);
       }
-      delay(20);
-      
       delay(1000);
-      handServo.write(26);
+      handServo.write(180);
       delay(200);
-      
-      for (int y = 26; y <= 180; y++)
+      for (int i = 180; i <= 26; i--)
       {
-        handServo.write(y);
-        Serial.println("hand2");
+        handServo.write(i);
+        Serial.println("hand");
         delay(20);
       }
-      delay(20);
-      
-      for (int x = 110; x >= 70; x--)
+      for (int i = 110; i >= 70; i--)
       {
-        boxServo.write(x);
-        Serial.println("box2");
+        boxServo.write(i);
+        Serial.println("box");
         delay(20);
       }
-      delay(2000);
-      
   }
 }
