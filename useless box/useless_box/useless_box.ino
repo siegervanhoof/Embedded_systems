@@ -3,7 +3,7 @@
 Servo handServo;
 Servo boxServo;
 
-int switchStatus=0, action=1, vot, randNumber=0;
+int switchStatus=0, action=1;
 const int ledPin = 13;
 const int frontSwitchPin = 2;
 const int handServoPin = 5;
@@ -20,11 +20,7 @@ void setup()
   boxServo.attach(boxServoPin);
   handServo.write(180);
   boxServo.write(70);
-
-  //randomSeed(analogRead(0));
 }
-
-
 void loop()
 {
   switchStatus = digitalRead(frontSwitchPin);
