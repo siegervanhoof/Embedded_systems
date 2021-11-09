@@ -13,7 +13,6 @@ const int boxServoPin = 6;
 void setup()
 {
   Serial.begin(9600);
-  
   pinMode(ledPin, OUTPUT);
   
   handServo.attach(handServoPin);
