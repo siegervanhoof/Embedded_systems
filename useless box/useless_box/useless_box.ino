@@ -5,9 +5,9 @@ Servo boxServo;
 
 int switchStatus = 0;
 const int ledPin = 13;
-const int frontSwitchPin = 6;
-const int handServoPin = 10;
-const int boxServoPin = 11;
+const int frontSwitchPin = 2;
+const int handServoPin = 5;
+const int boxServoPin = 6;
 
 
 void setup()
@@ -22,7 +22,7 @@ void setup()
   handServo.attach(handServoPin);
   boxServo.attach(boxServoPin);
   handServo.write(180);
-  boxServo.write(70);
+  boxServo.write(30);
 }
 void loop()
 { 
@@ -30,7 +30,7 @@ void loop()
   
 
   if (switchStatus == LOW) {
-      for (int i = 70; i <= 110; i++)
+      for (int i = 30; i <= 70; i++)
       {
         boxServo.write(i);
         Serial.println("box1");
@@ -57,7 +57,7 @@ void loop()
       }
       delay(20);
       
-      for (int x = 110; x >= 70; x--)
+      for (int x = 70; x >= 30; x--)
       {
         boxServo.write(x);
         Serial.println("box2");
