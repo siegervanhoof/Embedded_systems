@@ -1,4 +1,3 @@
- dieje zwz wel wa op alles gaat zage
  #include <Servo.h>
 
 Servo handServo;
